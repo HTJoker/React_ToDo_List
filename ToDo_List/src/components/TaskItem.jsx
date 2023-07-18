@@ -1,15 +1,16 @@
 import { useState } from "react";
-import styles from "./TaskItem.module.css";
+import styles from "../styles/TaskItem.module.css";
 
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { PencilIcon } from "@heroicons/react/24/outline";
 import { TrashIcon } from "@heroicons/react/24/outline";
 
-export const TaskItem = ({ task, deleteTask }) => {
+export const TaskItem = ({ task, deleteTask, toggleTask }) => {
 	const [isChecked, setIsChecked] = useState(task.checked);
 
 	const handleCheckBox = (e) => {
 		setIsChecked(!isChecked);
+		toggleTask(task.id);
 	};
 
 	return (
